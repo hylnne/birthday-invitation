@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6b8d1">
+  <title>Dianna Beatrice's 1st Birthday</title>
+  <style>
+    :root { --pink:#ffd5e6; --pink-deep:#ef7fb0; --purple:#7b3f91; --purple-dark:#4e1d68; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100svh; overflow:hidden; display:grid; place-items:center; color:#fff; font-family:Georgia,serif; background:radial-gradient(circle at 22% 16%,#fff8fc 0 2%,transparent 21%),radial-gradient(circle at 75% 76%,#f9e5ff 0 1%,transparent 20%),linear-gradient(135deg,#ffd5e7,#f8acd0 50%,#e8b5f2); }
+    body::before { content:""; position:fixed; inset:0; opacity:.35; pointer-events:none; background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#a955a5 1px,transparent 1.5px); background-size:31px 31px,47px 47px; background-position:0 0,13px 8px; }
+    .sparkles,.butterflies { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+    .sparkle { position:absolute; width:5px; height:5px; border-radius:50%; background:#fff; box-shadow:0 0 10px 3px #fff5fc; animation:twinkle var(--d) ease-in-out infinite alternate; animation-delay:var(--delay); }
+    @keyframes twinkle { to { transform:scale(.2); opacity:.2; } }
+    .scene { position:relative; z-index:2; width:min(92vw,490px); min-height:730px; display:grid; place-items:center; }
+    .intro { position:absolute; top:5%; width:100%; text-align:center; letter-spacing:.1em; font-size:clamp(.72rem,2vw,.9rem); text-shadow:0 1px 8px #7c356d; transition:opacity .35s; }
+    .envelope-button { position:relative; border:0; background:none; padding:0; cursor:pointer; width:min(84vw,440px); height:300px; perspective:1000px; filter:drop-shadow(0 24px 22px #74407966); transition:opacity .4s, transform .55s; }
+    .envelope-button:focus-visible { outline:3px solid white; outline-offset:10px; border-radius:8px; }
+    .envelope { position:absolute; inset:0; border-radius:10px; overflow:visible; background:linear-gradient(135deg,#9b55ad,#69307c 65%,#4d1f67); box-shadow:inset 0 0 0 2px #d898e6aa, inset 0 0 42px #efbfff55; }
+    .envelope::before,.envelope::after { content:""; position:absolute; width:0; height:0; z-index:3; }
+    .envelope::before { left:0; bottom:0; border-left:220px solid #86469c; border-right:220px solid #86469c; border-top:146px solid transparent; filter:brightness(1.08); }
+    .envelope::after { right:0; bottom:0; border-right:220px solid #713582; border-left:220px solid #713582; border-top:146px solid transparent; opacity:.9; }
+    .flap { position:absolute; top:0; left:0; width:0; height:0; z-index:5; border-left:220px solid transparent; border-right:220px solid transparent; border-top:172px solid #b164c1; transform-origin:top; transition:transform .9s cubic-bezier(.6,-.2,.25,1); filter:drop-shadow(0 2px 2px #48165c55); }
+    .seal { position:absolute; z-index:6; left:50%; top:49%; translate:-50% -50%; width:95px; height:95px; display:grid; place-items:center; border-radius:50%; background:radial-gradient(circle at 35% 30%,#fce7ff,#cc70da 50%,#762a93); box-shadow:0 5px 12px #49145d88,inset 0 0 0 3px #f7c7ff; transition:opacity .3s; }
+    .seal::after { content:""; position:absolute; inset:7px; border:1px dotted #fff; border-radius:50%; }
+    .butterfly { position:absolute; width:74px; height:55px; filter:drop-shadow(0 5px 4px #5a1d6b66); transform:rotate(var(--r)); animation:roam var(--t) linear infinite; animation-delay:var(--wait); }
+    .butterfly .wing { position:absolute; top:3px; width:35px; height:48px; background:repeating-linear-gradient(151deg,transparent 0 7px,#fff7ff55 8px 9px,transparent 10px 15px),radial-gradient(ellipse at 68% 66%,#fff7fc 0 12%,#ffd1e8 20%,#e984bd 42%,#a44cad 67%,#461658 100%); border:1.5px solid #3e174e; clip-path:polygon(49% 43%,15% 0,4% 19%,0 39%,11% 69%,38% 99%,55% 81%,63% 59%); transform-origin:right center; animation:wing .13s ease-in-out infinite alternate; }
+    .butterfly .wing::after { content:""; position:absolute; inset:5px 4px 5px 9px; opacity:.65; background:radial-gradient(circle at 50% 40%,#fff 0 1px,transparent 2px) 0 0/7px 7px; clip-path:inherit; }
+    .butterfly .left { left:2px; }
+    .butterfly .right { right:2px; scale:-1 1; transform-origin:right center; }
+    .butterfly .body { position:absolute; z-index:2; left:35px; top:9px; width:7px; height:40px; border-radius:50%; background:#261029; box-shadow:0 -4px 0 #261029; }
+    .butterfly .body::before,.butterfly .body::after { content:""; position:absolute; top:-5px; width:17px; height:9px; border-top:1px solid #25102a; border-radius:50%; }
+    .butterfly .body::before { left:-13px; rotate:-30deg; }.butterfly .body::after { left:3px; rotate:30deg; }
+    .seal .butterfly { position:relative; scale:.68; animation:none; filter:drop-shadow(0 2px 1px #56176c99); }
+    @keyframes wing { to { transform:rotateY(44deg) rotate(5deg); } }
+    @keyframes float { to { translate:0 -14px; } }
+    @keyframes roam { 0% { translate:0 0; } 24% { translate:var(--x1) var(--y1); } 49% { translate:var(--x2) var(--y2); } 74% { translate:var(--x3) var(--y3); } 100% { translate:0 0; } }
+    .hint { position:absolute; z-index:7; inset:auto 0 22px; font:600 .72rem/1 Arial,sans-serif; letter-spacing:.16em; color:#ffeafe; text-shadow:0 1px 3px #3e1555; animation:pulse 1.5s infinite; }
+    @keyframes pulse { 50% { opacity:.45; transform:translateY(4px); } }
+    .card { position:absolute; opacity:0; pointer-events:none; transform:scale(.82) translateY(25px); width:min(88vw,420px); border-radius:4px; overflow:hidden; box-shadow:0 25px 55px #69346c66,0 0 0 8px #fff9; transition:opacity .8s .45s,transform .8s .45s; }
+    .card img { display:block; width:100%; height:auto; }
+    body.opened { overflow:auto; }
+    body.opened .intro,.opened .envelope-button { opacity:0; transform:scale(.78) translateY(40px); pointer-events:none; }
+    body.opened .flap { transform:rotateX(180deg); }
+    body.opened .seal { opacity:0; }
+    body.opened .card { opacity:1; pointer-events:auto; transform:scale(1) translateY(0); }
+    .flying { z-index:8; animation:fly var(--fly-time) cubic-bezier(.25,.65,.35,1) forwards !important; }
+    @keyframes fly { 0% { translate:var(--x0) var(--y0); opacity:0; } 12% { opacity:1; } 100% { translate:var(--x1) var(--y1); rotate:var(--spin); opacity:0; } }
+    @media (max-height:760px) { .scene { min-height:650px; transform:scale(.9); } }
+  </style>
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div><div class="butterflies" aria-hidden="true"></div>
+  <main class="scene">
+    <p class="intro">From Dianna Beatrice</p>
+    <button class="envelope-button" id="openInvitation" aria-label="Open Dianna Beatrice's birthday invitation">
+      <span class="envelope"><span class="flap"></span></span>
+      <span class="seal"><span class="butterfly"><i class="wing left"></i><i class="wing right"></i><i class="body"></i></span></span>
+      <span class="hint">TAP TO OPEN</span>
+    </button>
+    <section class="card" aria-label="Dianna Beatrice's first birthday invitation"><img id="invitationCard" src="assets/dianna-birthday-invitation.png" alt="Dianna Beatrice's first birthday party invitation"></section>
+  </main>
+  <script>
+    const sparkleBox=document.querySelector('.sparkles'), butterflyBox=document.querySelector('.butterflies');
+    for(let i=0;i<50;i++){const s=document.createElement('i');s.className='sparkle';s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${1+Math.random()*2.8}s;--delay:-${Math.random()*3}s`;sparkleBox.append(s)}
+    function butterfly(extra='') { const b=document.createElement('span'); b.className='butterfly '+extra; b.innerHTML='<i class="wing left"></i><i class="wing right"></i><i class="body"></i>'; return b; }
+    const point=()=>`${Math.round(-80+Math.random()*(innerWidth+160))}px`, rise=()=>`${Math.round(-80+Math.random()*(innerHeight+160))}px`;
+    for(let i=0;i<22;i++){const b=butterfly();b.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--r:${-25+Math.random()*50}deg;--t:${10+Math.random()*13}s;--wait:-${Math.random()*16}s;--x1:${point()};--y1:${rise()};--x2:${point()};--y2:${rise()};--x3:${point()};--y3:${rise()};scale:${.3+Math.random()*.55}`;butterflyBox.append(b)}
+    document.getElementById('openInvitation').addEventListener('click',event=>{const envelope=event.currentTarget;document.body.classList.add('opened');setTimeout(()=>envelope.remove(),850);for(let i=0;i<34;i++){const b=butterfly('flying');const a=Math.random()*Math.PI*2, d=220+Math.random()*900;b.style.cssText=`left:${10+Math.random()*80}%;top:${12+Math.random()*76}%;--r:${Math.random()*40-20}deg;--x0:0px;--y0:0px;--x1:${Math.cos(a)*d}px;--y1:${Math.sin(a)*d}px;--spin:${Math.random()*720-360}deg;--fly-time:${1.7+Math.random()*1.7}s;scale:${.45+Math.random()*.55}`;butterflyBox.append(b);setTimeout(()=>b.remove(),3800)}});
+    (async()=>{const parts=Array.from({length:32},(_,i)=>`assets/card-parts/${String(i).padStart(2,'0')}.txt`);const image=await Promise.all(parts.map(path=>fetch(path).then(r=>r.text())));document.getElementById('invitationCard').src=`data:image/png;base64,${image.join('')}`})().catch(()=>{});
+  </script>
+</body>
+</html>
